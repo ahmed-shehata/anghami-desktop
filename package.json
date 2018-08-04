@@ -1,0 +1,20 @@
+{
+  "name": "anghami-desktop",
+  "version": "1.0.0",
+  "description": "Unofficial Anghami Desktop Client",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": "https://github.com/ahmed-shehata/anghami-desktop",
+  "keywords": [
+    "Electron",
+    "javascript",
+    "electronjs"
+  ],
+  "author": "Ahmed Shehata",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^2.0.0"
+  }
+}
