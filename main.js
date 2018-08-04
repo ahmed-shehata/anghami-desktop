@@ -1,29 +1,31 @@
-const {app, BrowserWindow} = require('electron')
+const { app, BrowserWindow } = require('electron');
 
-let mainWindow
+let mainWindow;
 
-function createWindow () {
-  mainWindow = new BrowserWindow({width: 800, height: 600})
+function createWindow() {
+  mainWindow = new BrowserWindow({ width: 800, height: 600 });
 
-  mainWindow.loadURL('https://www.anghami.com/')
+  mainWindow.desktopClient = {};
+
+  mainWindow.loadURL('https://www.anghami.com/', { userAgent: 'Chrome' });
   mainWindow.openDevTools();
 
-  mainWindow.on('closed', function () {
-    mainWindow = null
-  })
+
+  mainWindow.on('closed', () => {
+    mainWindow = null;
+  });
 }
 
-app.on('ready', createWindow)
+app.on('ready', createWindow);
 
-app.on('window-all-closed', function () {
+app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {
-    app.quit()
+    app.quit();
   }
-})
+});
 
-app.on('activate', function () {
+app.on('activate', () => {
   if (mainWindow === null) {
-    createWindow()
+    createWindow();
   }
-})
-
+});
